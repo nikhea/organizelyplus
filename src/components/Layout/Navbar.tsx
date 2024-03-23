@@ -8,10 +8,6 @@ const Navbar = () => {
   const { userId } = useAuth();
   const isAuth = !!userId;
 
-  // useEffect(() => {
-  //   if (!isAuth) {
-  //   }
-  // }, [isAuth]);
   return (
     <div className="  bg-purple-500 text-white py-5">
       <div className=" w-[80%] m-auto flex justify-between items-center">

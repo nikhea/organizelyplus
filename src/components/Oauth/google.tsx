@@ -15,7 +15,7 @@ function SignInWithGoogle() {
   return (
     <div
       onClick={() => signInWith("oauth_google")}
-      className=" w-[70%] mb-1 py-2.5 cursor-pointer rounded-lg hover:outline-none hover:border-violet-500"
+      className="w-full lg:w-[70%] mb-1 py-2.5 cursor-pointer rounded-lg hover:outline-none hover:border-violet-500"
     >
       <button className="border border-gray-300 w-full p-2.5 gap-2 justify-center flex items-center hover:border-violet-500   rounded-lg">
         <GoogleIcon /> Sign in with Google

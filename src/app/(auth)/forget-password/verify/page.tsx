@@ -95,7 +95,7 @@ const ForgotPasswordPage: NextPage = () => {
         <FormProvider {...methods}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-4 md:space-y-6 w-[70%]"
+            className="space-y-4 md:space-y-6 w-full lg:w-[70%]"
           >
             <>
               <div>
@@ -139,7 +139,7 @@ const ForgotPasswordPage: NextPage = () => {
                   value={code}
                   onChange={(value) => setCode(value)}
                 >
-                  <InputOTPGroup className="gap-5 w-full  grid-cols-3 grid lg:flex focus:outline-none focus:border-violet-500">
+                  <InputOTPGroup className="gap-5 w-full  grid-cols-3 lg:grid-cols-6 grid lg:flex focus:outline-none focus:border-violet-500">
                     {[...Array(6)].map((_, index) => (
                       <InputOTPSlot
                         key={index}

@@ -57,7 +57,7 @@ const VerifyEmail = () => {
         <div className=" bg-violet-900 h-screen hidden lg:flex"></div>
 
         <div className="p-5  rounded h-screen flex flex-col justify-center items-center ">
-          <form className="space-y-4 md:space-y-6  flex flex-col justify-center items-center  ">
+          <form className="space-y-4 md:space-y-6  flex flex-col justify-center items-center  w-full lg:w-[70%]">
             <h1 className=" font-bold capitalize text-xl">
               One-Time Password{" "}
             </h1>
@@ -67,7 +67,7 @@ const VerifyEmail = () => {
               onChange={(value) => setCode(value)}
               className="focus:outline-none focus:border-violet-500"
             >
-              <InputOTPGroup className="space-x-10 focus:outline-none focus:border-violet-500">
+              <InputOTPGroup className=" focus:outline-none focus:border-violet-500 gap-5 w-full  grid-cols-3 grid lg:flex">
                 <InputOTPSlot
                   index={0}
                   className="w-[60px] h-[60px] space-x-10 focus:outline-none focus:border-violet-600"

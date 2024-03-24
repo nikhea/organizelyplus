@@ -70,7 +70,7 @@ const RegisterPage = () => {
         <FormProvider {...methods}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-4 md:space-y-6 w-[70%]"
+            className="space-y-4 md:space-y-6 w-full lg:w-[70%]"
           >
             <div>
               <label

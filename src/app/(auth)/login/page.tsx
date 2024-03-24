@@ -72,7 +72,7 @@ export default function SignInForm() {
         <FormProvider {...methods}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-4 md:space-y-6 w-[70%] dark:text-white"
+            className="space-y-4 md:space-y-6 w-full lg:w-[70%] dark:text-white"
           >
             <div>
               <label

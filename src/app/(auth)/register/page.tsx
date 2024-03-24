@@ -51,11 +51,12 @@ const RegisterPage = () => {
 
       await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
 
-      router.push(`register/verify-email`);
     } catch (err) {
       console.error(err);
     } finally {
       setIsLoading(false);
+      router.push(`register/verify-email`);
+
     }
   };
 

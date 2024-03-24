@@ -48,7 +48,6 @@ export default function SignInForm() {
       if (result.status === "complete") {
         console.log(result);
         await setActive({ session: result.createdSessionId });
-        router.push("/dashboard");
       } else {
         console.log(result);
       }
@@ -58,6 +57,8 @@ export default function SignInForm() {
       setErrMessage(msg);
     } finally {
       setIsLoading(false);
+      router.push("/dashboard");
+
     }
   };
   return (

@@ -73,7 +73,6 @@ const ForgotPasswordPage: NextPage = () => {
 
       if (result.status === "complete") {
         setError("");
-        router.push("/forget-password/verify");
       } else {
         console.log(result);
       }
@@ -82,6 +81,7 @@ const ForgotPasswordPage: NextPage = () => {
       setError(err.errors[0].longMessage);
     } finally {
       setIsLoading(false);
+      router.push("/forget-password/verify");
     }
   };
 

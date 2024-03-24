@@ -40,7 +40,6 @@ const VerifyEmail = () => {
       }
       if (completeSignUp.status === "complete") {
         await setActive({ session: completeSignUp.createdSessionId });
-        router.push("/dashboard");
       }
     } catch (err: any) {
       console.error(JSON.stringify(err, null, 2));
@@ -48,6 +47,7 @@ const VerifyEmail = () => {
       setErrMessage(msg);
     } finally {
       setIsLoading(false);
+      router.push("/dashboard");
     }
   };
 

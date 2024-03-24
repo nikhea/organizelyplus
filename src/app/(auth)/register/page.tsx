@@ -10,7 +10,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Link from "next/link";
 import Input from "@/components/ui/input";
-import SignInWithGoogle from "../../components/Oauth/google";
+import SignInWithGoogle from "../../../components/Oauth/google";
 
 const RegisterPage = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -82,7 +82,7 @@ const RegisterPage = () => {
               <Input
                 type="text"
                 name="firstName*"
-                placeholder="first name"
+                placeholder="First Name"
                 errors={errors}
                 inputRef={register("firstName", { required: true })}
                 id="first_name"
@@ -99,7 +99,7 @@ const RegisterPage = () => {
               <Input
                 type="text"
                 name="lastName*"
-                placeholder="last name"
+                placeholder="Last Name"
                 errors={errors}
                 inputRef={register("lastName", { required: true })}
                 id="last_name"
@@ -116,7 +116,7 @@ const RegisterPage = () => {
               <Input
                 type="email"
                 name="email*"
-                placeholder="name@company.com"
+                placeholder="Name@company.com"
                 errors={errors}
                 inputRef={register("email", { required: true })}
                 id="email"
@@ -135,7 +135,7 @@ const RegisterPage = () => {
                   type={view ? "password" : "text"}
                   name="password"
                   id="password"
-                  placeholder="password"
+                  placeholder="Password"
                   errors={errors}
                   inputRef={register("password", { required: true })}
                   required={true}
@@ -146,9 +146,9 @@ const RegisterPage = () => {
                   onClick={() => setView(!view)}
                 >
                   {view ? (
-                    <EyeIcon className="w-[20px] hover:text-violet-500" />
+                    <EyeIcon className="w-[20px] hover:text-violet-500 dark:text-[#111] dark:hover:hover:text-violet-500" />
                   ) : (
-                    <EyeSlashIcon className="w-[20px] hover:text-violet-500" />
+                    <EyeSlashIcon className="w-[20px] hover:text-violet-500 dark:text-[#111] dark:hover:hover:text-violet-500" />
                   )}
                 </div>
               </div>

@@ -85,7 +85,7 @@ const ForgotPasswordPage: NextPage = () => {
                 <Input
                   type="email"
                   name="email*"
-                  placeholder="name@company.com"
+                  placeholder="Name@company.com"
                   errors={errors}
                   inputRef={register("email", { required: true })}
                   id="email"

@@ -110,7 +110,7 @@ const ForgotPasswordPage: NextPage = () => {
                     type={view ? "password" : "text"}
                     name="password"
                     id="password"
-                    placeholder="password"
+                    placeholder="Password"
                     errors={errors}
                     inputRef={register("password", { required: true })}
                     required={true}
@@ -121,9 +121,9 @@ const ForgotPasswordPage: NextPage = () => {
                     onClick={() => setView(!view)}
                   >
                     {view ? (
-                      <EyeIcon className="w-[20px] hover:text-violet-500" />
+                      <EyeIcon className="w-[20px] hover:text-violet-500 dark:text-[#111] dark:hover:hover:text-violet-500" />
                     ) : (
-                      <EyeSlashIcon className="w-[20px] hover:text-violet-500" />
+                      <EyeSlashIcon className="w-[20px] hover:text-violet-500 dark:text-[#111] dark:hover:hover:text-violet-500" />
                     )}
                   </div>
                 </div>

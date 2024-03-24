@@ -10,6 +10,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Link from "next/link";
 import Input from "@/components/ui/input";
+import SignInWithGoogle from "../../components/Oauth/google";
+
 
 const RegisterPage = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -64,6 +66,8 @@ const RegisterPage = () => {
 
       <div className="p-5  rounded h-screen flex flex-col justify-center items-center ">
         <h1 className="mb-4 text-2xl uppercase font-bold">Register</h1>
+        <SignInWithGoogle />
+
         <FormProvider {...methods}>
           <form
             onSubmit={handleSubmit(onSubmit)}

@@ -9,9 +9,9 @@ const Navbar = () => {
   const isAuth = !!userId;
 
   return (
-    <div className="  bg-purple-500 text-white py-5">
+    <div className="  bg-purple-300 text-[#111] py-5">
       <div className=" w-[80%] m-auto flex justify-between items-center">
-        <Link href="/" className=" list-none">
+        <Link href="/" className=" list-none capitalize font-bold">
           <li>Organizely</li>
         </Link>
         <ul className=" capitalize gap-4 flex  items-center">

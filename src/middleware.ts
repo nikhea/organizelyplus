@@ -7,10 +7,12 @@ export default authMiddleware({
   publicRoutes: [
     "/",
     "/register",
+    "register/verify-email",
     "/login",
     "/sign-up",
     "/sign-in",
     "/forget-password",
+    "/forget-password/verify",
     "/sso-callback",
   ],
   // Allow signed out users to access the specified routes:

@@ -1,207 +1,181 @@
-// @ts-nocheck
-
 "use client";
 
 import { useState } from "react";
 import { useSignUp } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+import { EyeIcon } from "@heroicons/react/24/outline";
+import { EyeSlashIcon } from "@heroicons/react/24/solid";
+import { useForm, FormProvider } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+import Link from "next/link";
+import Input from "@/components/ui/input";
 
 const RegisterPage = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
-  const [isLoading, setIsLoading] = useState(false); // Corrected useState usage
-  const [email, setEmail] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [password, setPassword] = useState("");
-  const [pendingVerification, setPendingVerification] = useState(false);
-  const [code, setCode] = useState("");
+  const [view, setView] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  // Form Submit
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
+  const methods = useForm({
+    resolver: yupResolver(validationSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    },
+  });
 
-  //     if (!isLoaded) {
-  //       return;
-  //     }
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = methods;
 
-  //     try {
-  //       await signUp.create({
-  //         firstName,
-  //         lastName,
-  //         emailAddress: email,
-  //         password,
-  //       });
-
-  //       // send the email.
-  //       await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
-  //       setIsLoading(false);
-
-  //       setPendingVerification(true);
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const onSubmit = async (data: any) => {
     if (!isLoaded || isLoading) {
       return;
     }
 
-    setIsLoading(true); // Set loading state to true
+    setIsLoading(true);
 
     try {
       await signUp.create({
-        firstName,
-        lastName,
-        emailAddress: email,
-        password,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        emailAddress: data.email,
+        password: data.password,
       });
 
-      // send the email.
       await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
 
-      // change the UI to our pending section.
-      setPendingVerification(true);
+      router.push(`register/verify-email`);
     } catch (err) {
       console.error(err);
     } finally {
-      setIsLoading(false); // Set loading state to false after sign-up process completes
-    }
-  };
-  // Verify User Email Code
-  const onPressVerify = async (e) => {
-    e.preventDefault();
-    if (!isLoaded) {
-      return;
-    }
-    setIsLoading(true); // Set loading state to true
-
-    try {
-      const completeSignUp = await signUp.attemptEmailAddressVerification({
-        code,
-      });
-
-      if (completeSignUp.status !== "complete") {
-        console.log("uncomplete");
-
-        // console.log(JSON.stringify(completeSignUp, null, 2));
-      }
-      if (completeSignUp.status === "complete") {
-        await setActive({ session: completeSignUp.createdSessionId });
-        router.push("/dashboard");
-      }
-      console.log(completeSignUp.status);
-    } catch (err) {
-      console.error(JSON.stringify(err, null, 2));
-    } finally {
-      setIsLoading(false); // Set loading state to false after sign-up process completes
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="p-5 border rounded" style={{ width: "500px" }}>
-      <h1 className="mb-4 text-2xl">Register</h1>
-      {!pendingVerification && (
-        <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-          <div>
-            <label
-              htmlFor="first_name"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
-              First Name
-            </label>
-            <input
-              type="text"
-              name="first_name"
-              id="first_name"
-              onChange={(e) => setFirstName(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-              required={true}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="last_name"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Last Name
-            </label>
-            <input
-              type="text"
-              name="last_name"
-              id="last_name"
-              onChange={(e) => setLastName(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-              required={true}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Email Address
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              onChange={(e) => setEmail(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-              placeholder="name@company.com"
-              required={true}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="password"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              onChange={(e) => setPassword(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
-              required={true}
-            />
-          </div>
+    <div className="grid h-screen  place-content-center  gap-4 grid-cols-1 lg:grid-cols-2">
+      <div className=" bg-violet-900 h-screen hidden lg:flex"></div>
 
-          <button
-            type="submit"
-            className="w-full text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+      <div className="p-5  rounded h-screen flex flex-col justify-center items-center ">
+        <h1 className="mb-4 text-2xl uppercase font-bold">Register</h1>
+        <FormProvider {...methods}>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="space-y-4 md:space-y-6 w-[70%]"
           >
-            {isLoading ? <p>Loading...</p> : <p>Create an account</p>}
-          </button>
-        </form>
-      )}
-      {pendingVerification && (
-        <div>
-          <form className="space-y-4 md:space-y-6">
-            <input
-              value={code}
-              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
-              placeholder="Enter Verification Code..."
-              onChange={(e) => setCode(e.target.value)}
-              required={true}
-            />
+            <div>
+              <label
+                htmlFor="first_name"
+                className="block mb-2 text-sm font-medium text-gray-900"
+              >
+                First Name*
+              </label>
+              <Input
+                type="text"
+                name="firstName*"
+                placeholder="first name"
+                errors={errors}
+                inputRef={register("firstName", { required: true })}
+                id="first_name"
+                required={true}
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="last_name"
+                className="block mb-2 text-sm font-medium text-gray-900"
+              >
+                Last Name*
+              </label>
+              <Input
+                type="text"
+                name="lastName*"
+                placeholder="last name"
+                errors={errors}
+                inputRef={register("lastName", { required: true })}
+                id="last_name"
+                required={true}
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="block mb-2 text-sm font-medium text-gray-900"
+              >
+                Email Address*
+              </label>
+              <Input
+                type="email"
+                name="email*"
+                placeholder="name@company.com"
+                errors={errors}
+                inputRef={register("email", { required: true })}
+                id="email"
+                required={true}
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="password"
+                className="block mb-2 text-sm font-medium text-gray-900"
+              >
+                Password*
+              </label>
+              <div className=" relative">
+                <Input
+                  type={view ? "password" : "text"}
+                  name="password"
+                  id="password"
+                  placeholder="password"
+                  errors={errors}
+                  inputRef={register("password", { required: true })}
+                  required={true}
+                />
+
+                <div
+                  className=" absolute top-3 right-3 cursor-pointer"
+                  onClick={() => setView(!view)}
+                >
+                  {view ? (
+                    <EyeIcon className="w-[20px] hover:text-violet-500" />
+                  ) : (
+                    <EyeSlashIcon className="w-[20px] hover:text-violet-500" />
+                  )}
+                </div>
+              </div>
+            </div>
             <button
               type="submit"
-              onClick={onPressVerify}
-              className="w-full text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              className="w-full text-white bg-violet-500 hover:bg-violet-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
-              {isLoading ? <p>Loading...</p> : <p>Verify Email</p>}
+              {isLoading ? <p>Loading...</p> : <p>Create an account</p>}
             </button>
           </form>
-        </div>
-      )}
+        </FormProvider>
+
+        <p className=" my-3 font-light">
+          Already have an account?
+          <Link className=" text-violet-500 font-bold" href="/login">
+            Login
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };
 
 export default RegisterPage;
+const validationSchema = Yup.object().shape({
+  firstName: Yup.string().required("First Name is required"),
+  lastName: Yup.string().required("Last Name is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  password: Yup.string()
+    .required("Password is required")
+    .min(8, "Password must be at least 8 characters"),
+});

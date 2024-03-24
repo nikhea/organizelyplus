@@ -116,7 +116,7 @@ export default function SignInForm() {
                 </div>
               </div>
               </div>
-              <p className="text-violet-500 font-bold font-light font-light capitalized ">
+              <p className="text-violet-500 font-bold font-light font-light capitalize ">
               <Link href="/forget-password">
           forgotten password
           </Link>
@@ -130,9 +130,9 @@ export default function SignInForm() {
           </form>
         </FormProvider>
         <p className=" my-3 font-light">
-        Don’t have an account?          <Link className=" text-violet-500 font-bold capitalized" href="/register">
+        Don’t have an account?<Link className=" text-violet-500 font-bold capitalize" href="/register">
             create account
-          </Link>
+          </Link> 
         </p>
       
         <p className=" text-red-500 text-sm my-3">{errMessage}</p>

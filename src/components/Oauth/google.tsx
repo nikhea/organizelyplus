@@ -5,7 +5,6 @@ function SignInWithGoogle() {
   const { signIn } = useSignIn();
 
   const signInWith = (strategy: OAuthStrategy) => {
-    console.log("ddddddddddddd");
     return signIn?.authenticateWithRedirect({
       strategy,
       redirectUrl: "/sso-callback",

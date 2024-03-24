@@ -12,7 +12,6 @@ import Link from "next/link";
 import Input from "@/components/ui/input";
 import SignInWithGoogle from "../../components/Oauth/google";
 
-
 const RegisterPage = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
   const [view, setView] = useState(true);
@@ -76,7 +75,7 @@ const RegisterPage = () => {
             <div>
               <label
                 htmlFor="first_name"
-                className="block mb-2 text-sm font-medium text-gray-900"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 First Name*
               </label>
@@ -93,7 +92,7 @@ const RegisterPage = () => {
             <div>
               <label
                 htmlFor="last_name"
-                className="block mb-2 text-sm font-medium text-gray-900"
+                className="block mb-2 text-sm font-medium text-gray-900  dark:text-white"
               >
                 Last Name*
               </label>
@@ -110,7 +109,7 @@ const RegisterPage = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block mb-2 text-sm font-medium text-gray-900"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Email Address*
               </label>
@@ -127,7 +126,7 @@ const RegisterPage = () => {
             <div>
               <label
                 htmlFor="password"
-                className="block mb-2 text-sm font-medium text-gray-900"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Password*
               </label>

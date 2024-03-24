@@ -101,7 +101,7 @@ const ForgotPasswordPage: NextPage = () => {
               <div>
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-gray-900"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Password*
                 </label>
@@ -130,7 +130,7 @@ const ForgotPasswordPage: NextPage = () => {
               </div>
 
               <div>
-                <h1 className="capitalize  block mb-2 text-sm font-medium text-gray-900">
+                <h1 className="capitalize  block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   OTP*
                 </h1>
                 <InputOTP

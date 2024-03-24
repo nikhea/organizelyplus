@@ -65,19 +65,19 @@ export default function SignInForm() {
       <div className=" bg-violet-900 h-screen hidden lg:flex"></div>
 
       <div className="p-5  rounded h-screen flex flex-col justify-center items-center ">
-      <h1 className="mb-4 text-2xl uppercase font-bold">Login in</h1>
+        <h1 className="mb-4 text-2xl uppercase font-bold">sign in</h1>
 
         <SignInWithGoogle />
 
         <FormProvider {...methods}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-4 md:space-y-6 w-[70%]"
+            className="space-y-4 md:space-y-6 w-[70%] dark:text-white"
           >
             <div>
               <label
                 htmlFor="email"
-                className="block mb-2 text-sm font-medium text-gray-900"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Email Address*
               </label>
@@ -94,7 +94,7 @@ export default function SignInForm() {
             <div>
               <label
                 htmlFor="password"
-                className="block mb-2 text-sm font-medium text-gray-900"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Password*
               </label>

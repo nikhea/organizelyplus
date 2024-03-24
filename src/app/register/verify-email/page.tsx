@@ -3,6 +3,7 @@
 import { useSignUp } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "sonner";
 import {
   InputOTP,
   InputOTPGroup,
@@ -20,6 +21,10 @@ const VerifyEmail = () => {
   const onPressVerify = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log(code);
+    if (code === "" || code.length !== 6) {
+      toast("Please Enter The Compelete Code");
+      return;
+    }
 
     if (!isLoaded) {
       return;
@@ -65,13 +70,28 @@ const VerifyEmail = () => {
               <InputOTPGroup className="space-x-10 focus:outline-none focus:border-violet-500">
                 <InputOTPSlot
                   index={0}
-                  className=" space-x-10 focus:outline-none focus:border-violet-500"
+                  className="w-[60px] h-[60px] space-x-10 focus:outline-none focus:border-violet-600"
                 />
-                <InputOTPSlot index={1} />
-                <InputOTPSlot index={2} />
-                <InputOTPSlot index={3} />
-                <InputOTPSlot index={4} />
-                <InputOTPSlot index={5} />
+                <InputOTPSlot
+                  index={1}
+                  className="w-[60px] h-[60px] space-x-10 focus:outline-none focus:border-violet-600"
+                />
+                <InputOTPSlot
+                  index={2}
+                  className="w-[60px] h-[60px] space-x-10 focus:outline-none focus:border-violet-600"
+                />
+                <InputOTPSlot
+                  index={3}
+                  className="w-[60px] h-[60px] space-x-10 focus:outline-none focus:border-violet-600"
+                />
+                <InputOTPSlot
+                  index={4}
+                  className="w-[60px] h-[60px] space-x-10 focus:outline-none focus:border-violet-600"
+                />
+                <InputOTPSlot
+                  index={5}
+                  className="w-[60px]  h-[60px] space-x-10 focus:outline-none focus:border-violet-500"
+                />
               </InputOTPGroup>
             </InputOTP>
 

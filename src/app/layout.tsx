@@ -2,9 +2,9 @@ import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Layout/Header";
-import Footer from "@/components/Layout/Footer";
 
+import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/ThemeProvider";
 // const inter = Inter({ subsets: ["latin"] });
 
 const poppins = Poppins({
@@ -29,10 +29,16 @@ export default function RootLayout({
       <html lang="en">
         <body className={`${poppins.variable}`}>
           <main className="poppins">
-            {/* <Header /> */}
-            {children}
-            {/* <Footer /> */}
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>{" "}
           </main>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

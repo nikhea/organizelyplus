@@ -3,6 +3,7 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { auth, useAuth, UserButton } from "@clerk/nextjs";
+import { ModeToggle } from "../ThemeToggle/ThemeToggle";
 
 const Navbar = () => {
   const { userId } = useAuth();
@@ -15,6 +16,7 @@ const Navbar = () => {
           <li>Organizely</li>
         </Link>
         <ul className=" capitalize gap-4 flex  items-center">
+          <ModeToggle />
           {!isAuth ? (
             <>
               <Link href="/register">

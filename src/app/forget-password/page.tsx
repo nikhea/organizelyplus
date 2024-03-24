@@ -78,7 +78,7 @@ const ForgotPasswordPage: NextPage = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Email Address*
                 </label>

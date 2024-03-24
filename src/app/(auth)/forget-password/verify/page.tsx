@@ -56,8 +56,6 @@ const ForgotPasswordPage: NextPage = () => {
   }
 
   const onSubmit = async (data: any) => {
-    console.log(data);
-
     if (!isLoaded || isLoading) {
       return;
     }
@@ -72,6 +70,8 @@ const ForgotPasswordPage: NextPage = () => {
       });
 
       if (result.status === "complete") {
+        await setActive({ session: result.createdSessionId });
+        router.push("/forget-password/verify");
         setError("");
       } else {
         console.log(result);

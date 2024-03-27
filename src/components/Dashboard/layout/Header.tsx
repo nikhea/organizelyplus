@@ -4,7 +4,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className=" bg-slate-50 dark:bg-gray-800 border border-b rounded-md      py-5 px-5 flex items-center justify-between sticky  top-0 overflow-hidden">
+    <div className=" bg-purple-300 dark:bg-purple-900  rounded-br-lg      py-5 px-5 flex items-center justify-between sticky  top-0 overflow-hidden">
       <h1>Header</h1>
       <div className="flex items-center gap-5">
         <ModeToggle />

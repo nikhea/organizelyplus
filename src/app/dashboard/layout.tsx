@@ -16,7 +16,7 @@ const layout = ({
 }>) => {
   return (
     <div>
-      <div className=" grid grid-cols-6 gap-1 ">
+      <div className=" grid grid-cols-6  ">
         <SideBar />
         <div className="col-span-5 relative">
           <Header />

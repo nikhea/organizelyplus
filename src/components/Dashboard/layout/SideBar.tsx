@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import MenuDropDown from "./MenuDropDown";
 import {
   CloudIcon,
   SquaresPlusIcon,
@@ -10,6 +11,7 @@ import {
   HeartIcon,
   TrashIcon,
 } from "@heroicons/react/24/outline";
+
 const SideBar = () => {
   const pathname = usePathname();
   const isActive = (path: string) => path === pathname;
@@ -28,6 +30,7 @@ const SideBar = () => {
             </Link>
           </div>
           <nav className=" my-10 ">
+            <MenuDropDown />
             <ul className=" space-y-10">
               {NavLinks.map((link) => (
                 <Link

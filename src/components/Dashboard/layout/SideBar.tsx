@@ -1,4 +1,7 @@
 "use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   CloudIcon,
   SquaresPlusIcon,
@@ -7,9 +10,6 @@ import {
   HeartIcon,
   TrashIcon,
 } from "@heroicons/react/24/outline";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-
 const SideBar = () => {
   const pathname = usePathname();
   const isActive = (path: string) => path === pathname;
@@ -57,7 +57,6 @@ const SideBar = () => {
 };
 
 export default SideBar;
-// border border-2
 const NavLinks = [
   {
     id: 1,
@@ -80,13 +79,13 @@ const NavLinks = [
   {
     id: 4,
     name: "favorite",
-    path: "/dashboard//favorite",
+    path: "/dashboard/favorite",
     icon: <HeartIcon />,
   },
   {
     id: 5,
     name: "trash",
-    path: "/dashboard//trash",
+    path: "/dashboard/trash",
     icon: <TrashIcon />,
   },
 ];

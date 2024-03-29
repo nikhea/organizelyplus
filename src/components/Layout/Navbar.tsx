@@ -10,7 +10,7 @@ const Navbar = () => {
   const isAuth = !!userId;
 
   return (
-    <div className="  bg-purple-300 text-[#111] py-5">
+    <div className="  bg-purple-300 dark:bg-purple-900  py-5">
       <div className=" w-[80%] m-auto flex justify-between items-center">
         <Link href="/" className=" list-none capitalize font-bold">
           <li>Organizely</li>

@@ -23,8 +23,8 @@ const SideBar = () => {
               href="/"
               className=" w-full mx-7  list-none text-center flex items-center text-2xl  uppercase font-bold"
             >
-              <CloudIcon className="w-16 h-16" />
-              <li>Organizely</li>
+              <CloudIcon className=" lg:w-16 lg:h-16" />
+              <li className="hidden lg:flex">Organizely</li>
             </Link>
           </div>
           <nav className=" my-10 ">
@@ -35,20 +35,20 @@ const SideBar = () => {
                   className={`${
                     isActive(link.path) &&
                     "dark:bg-purple-300 bg-purple-900 text-white dark:text-[#111]"
-                  } pl-5 font-medium flex hover:dark:bg-purple-300 hover:bg-purple-900 py-3 hover:text-white hover:dark:text-[#111] rounded-md items-center space-x-2 capitalize`}
+                  }  pl-5 font-medium flex hover:dark:bg-purple-300 hover:bg-purple-900 py-3 hover:text-white hover:dark:text-[#111] rounded-md items-center space-x-2 capitalize`}
                   href={link.path}
                 >
                   <span className="w-7 h-7">{link.icon}</span>
-                  <li>{link.name}</li>
+                  <li className="hidden lg:flex">{link.name}</li>
                 </Link>
               ))}
             </ul>
           </nav>
         </div>
         <div>
-          <div className="dark:bg-purple-300 space-x-1 m-auto flex items-center bg-purple-900 text-white dark:text-[#111] uppercase px-3 cursor-pointer font-bold rounded-md text-center">
+          <div className="dark:bg-purple-300  space-x-1 m-auto flex items-center bg-purple-900 text-white dark:text-[#111] uppercase px-3 cursor-pointer font-bold rounded-md text-center">
             <CloudIcon className="w-16 h-16" />
-            <h1> upgrade storage</h1>
+            <h1 className="hidden lg:flex"> upgrade storage</h1>
           </div>
         </div>
       </div>
@@ -80,13 +80,13 @@ const NavLinks = [
   {
     id: 4,
     name: "favorite",
-    path: "/favorite",
+    path: "/dashboard//favorite",
     icon: <HeartIcon />,
   },
   {
     id: 5,
     name: "trash",
-    path: "/trash",
+    path: "/dashboard//trash",
     icon: <TrashIcon />,
   },
 ];

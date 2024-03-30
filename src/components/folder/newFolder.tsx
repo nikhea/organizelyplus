@@ -39,19 +39,17 @@ export function NewFolder() {
   return (
     <Dialog open={closeDialog} onOpenChange={setCloseDialog}>
       <DialogTrigger asChild>
-        <div className=" ">
-          <button
-            type="button"
-            className="w-full  flex lg:hidden items-center gap-1 capitalize text-white bg-violet-500 hover:bg-violet-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-          >
-            <FolderPlusIcon className="w-5 h-5 mr-1" />
-            new folder
-          </button>
-          <Card className="lg:flex p-3 flex-col w-full hidden h-full items-center justify-center gap-2 cursor-pointer">
+        <button
+          type="button"
+          className="w-full  flex lg:hidden items-center gap-1 capitalize text-white bg-violet-500 hover:bg-violet-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        >
+          <FolderPlusIcon className="w-5 h-5 mr-1" />
+          new folder
+        </button>
+        {/* <Card className="lg:flex p-3 flex-col w-full hidden h-full items-center justify-center gap-2 cursor-pointer">
             <FolderPlusIcon className="w-10 h-10 text-violet-500 hover:text-violet-700" />
             <h1 className="capitalize font-bold text-lg">create new folder</h1>
-          </Card>
-        </div>
+          </Card> */}
       </DialogTrigger>
       <DialogContent className="sm:max-w-[525px]">
         <form onSubmit={handleSubmit(onSubmit)}>

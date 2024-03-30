@@ -2,12 +2,12 @@ import { FC } from "react";
 import classnames from "classnames";
 
 interface CustomInputProps {
-  name: string;
+  name?: string;
   label?: string;
-  type: string;
-  placeholder: string;
-  id: string;
-  required: boolean;
+  type?: string;
+  placeholder?: string;
+  id?: string;
+  required?: boolean;
   disabled?: boolean;
   inputRef?: any;
   inputFull?: boolean;

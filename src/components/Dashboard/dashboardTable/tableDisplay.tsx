@@ -27,18 +27,22 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useState } from "react";
+import {  useState } from "react";
 import { Button } from "@/components/ui/button";
 import Input from "@/components/ui/input";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  filterValue: string;
+  setFilterValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  filterValue,
+  setFilterValue,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -63,20 +67,13 @@ export function DataTable<TData, TValue>({
   return (
     <>
       <div className="flex items-center py-4">
-        {" "}
         <div className="flex items-center py-4">
           <Input
-            placeholder="Filter By File Name..."
-            value={
-              (table.getColumn("fileName")?.getFilterValue() as string) ?? ""
-            }
-            onChange={(event: any) =>
-              table.getColumn("fileName")?.setFilterValue(event.target.value)
-            }
-            name={""}
-            type={""}
-            id={""}
-            required={false}
+            placeholder="Filter By File or Folder Name..."
+            value={filterValue}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setFilterValue(event.target.value);
+            }}
           />
         </div>
         <DropdownMenu>
@@ -176,4 +173,15 @@ export function DataTable<TData, TValue>({
       </div>
     </>
   );
+}
+{
+  /* <Input
+            placeholder="Filter By File or Folder Name..."
+            value={
+              (table.getColumn("fileName")?.getFilterValue() as string) ?? ""
+            }
+            onChange={(event: any) =>
+              table.getColumn("fileName")?.setFilterValue(event.target.value)
+            }
+          /> */
 }

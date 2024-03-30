@@ -1,20 +1,38 @@
+"use client";
 import { Card, CardTitle } from "@/components/ui/card";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { DataTable } from "./tableDisplay";
 import { columns, fileType } from "./columns";
 
-const dashboardTable = () => {
+const DashboardTable = () => {
+  const [filterValue, setFilterValue] = useState("");
+  const [filteredData, setFilteredData] = useState<fileType[]>([]);
+
+  useEffect(() => {
+    const filtered = Files.filter(
+      (item) =>
+        item.fileName.toLowerCase().includes(filterValue.toLowerCase()) ||
+        item.folderName.toLowerCase().includes(filterValue.toLowerCase())
+    );
+    setFilteredData(filtered);
+  }, [filterValue]);
+
   return (
     <Card className="p-5 bg-slate-50 dark:bg-slate-900 pb-10">
       <CardTitle className="capitalize font-bold text-2xl mb-5">
         recent files
       </CardTitle>
-      <DataTable columns={columns} data={Files} />
+      <DataTable
+        columns={columns}
+        data={filteredData} // Pass filteredData instead of allData
+        filterValue={filterValue}
+        setFilterValue={setFilterValue}
+      />
     </Card>
   );
 };
 
-export default dashboardTable;
+export default DashboardTable;
 
 const Files: fileType[] = [
   {
@@ -262,7 +280,7 @@ const Files: fileType[] = [
   {
     id: "1",
     folderName: "pxc",
-    fileName: "apx",
+    fileName: "ccv",
     fullName: "ax",
     timestamp: new Date(),
     lastModified: new Date(),

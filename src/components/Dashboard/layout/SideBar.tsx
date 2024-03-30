@@ -17,7 +17,7 @@ const SideBar = () => {
   const isActive = (path: string) => path === pathname;
 
   return (
-    <div className=" bg-purple-300  dark:bg-purple-900 p-3 h-screen overflow-hidden sticky top-0   ">
+    <div className=" hidden md:block bg-purple-300  dark:bg-purple-900 p-3 h-screen overflow-hidden sticky top-0   ">
       <div className="flex flex-col h-full justify-between">
         <div>
           <div className="  flex items-center text-center m-auto   w-full mt-2">
@@ -30,7 +30,7 @@ const SideBar = () => {
             </Link>
           </div>
           <nav className=" my-10 ">
-            <MenuDropDown />
+            {/* <MenuDropDown /> */}
             <ul className=" space-y-10">
               {NavLinks.map((link) => (
                 <Link

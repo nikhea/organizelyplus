@@ -11,20 +11,20 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { NewFolder } from "@/components/folder/newFolder";
+
 const MenuDropDown = () => {
   return (
     <div className="w-full mb-5 ml-5">
       <DropdownMenu>
-        <DropdownMenuTrigger className="dark:bg-purple-300 bg-purple-900 w-[30%] capitalize flex items-center justify-between rounded-xl  p-3  text-white dark:text-[#111]">
+        <DropdownMenuTrigger className="dark:bg-purple-300 bg-purple-900 lg:w-[30%] capitalize flex items-center justify-between rounded-xl  p-3  text-white dark:text-[#111]">
           <PlusIcon className="w-7 h-7" />
-          new
+          <h1 className="hidden lg:flex">new</h1>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem
-            className="capitalize cursor-pointer"
-            onClick={() => alert("new folder")}
-          >
-            <FolderPlusIcon className="w-5 h-5 mr-1" /> new folder
+          <DropdownMenuItem className="capitalize cursor-pointer">
+            <FolderPlusIcon className="w-5 h-5 mr-1" />
+            new folder
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem
@@ -36,6 +36,7 @@ const MenuDropDown = () => {
           <DropdownMenuSeparator />
         </DropdownMenuContent>
       </DropdownMenu>
+      <NewFolder />
     </div>
   );
 };

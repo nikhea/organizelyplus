@@ -49,7 +49,7 @@ export function DataTableRowActions<TData>({
           Favorite
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="text-red-500 cursor-pointer hover:!bg-red-300">
+        <DropdownMenuItem className="text-red-500 cursor-pointer hover:text-red-500 hover:!bg-red-200">
           Delete
           <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
         </DropdownMenuItem>

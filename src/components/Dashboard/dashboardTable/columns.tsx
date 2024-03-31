@@ -25,10 +25,12 @@ export type fileType = {
 export const columns: ColumnDef<fileType>[] = [
   {
     accessorKey: "type",
-    header: "",
+    header: "type",
     cell: ({ renderValue, ...props }) => {
       const type = renderValue() as string;
-      const extension: string = type.split("/")[1];
+      // const extension: string = type.split("/")[1];
+      const extension: string = type;
+
       return (
         <div className="w-10">
           <FileIcon

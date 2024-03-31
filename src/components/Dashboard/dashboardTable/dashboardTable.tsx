@@ -50,7 +50,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/pdf",
+    type: "pdf",
     size: 120353666635346,
   },
   {
@@ -61,7 +61,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/png",
+    type: "png",
     size: 120353666635346,
   },
   {
@@ -72,7 +72,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/jpg",
+    type: "jpg",
     size: 120353666635346,
   },
   {
@@ -83,7 +83,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/svg",
+    type: "svg",
     size: 120353666635346,
   },
   {
@@ -94,7 +94,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/mp3",
+    type: "mp3",
     size: 120353666635346,
   },
   {
@@ -105,7 +105,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/mp4",
+    type: "mp4",
     size: 120353666635346,
   },
   {
@@ -116,7 +116,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/docx",
+    type: "docx",
     size: 120353666635346,
   },
   {
@@ -127,7 +127,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/pptx",
+    type: "pptx",
     size: 120353666635346,
   },
   {
@@ -138,7 +138,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/gif",
+    type: "gif",
     size: 120353666635346,
   },
   {
@@ -149,7 +149,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/html",
+    type: "html",
     size: 120353666635346,
   },
   {
@@ -160,7 +160,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/css",
+    type: "css",
     size: 120353666635346,
   },
   {
@@ -171,7 +171,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/psd",
+    type: "psd",
     size: 120353666635346,
   },
   {
@@ -182,7 +182,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/sh",
+    type: "sh",
     size: 120353666635346,
   },
   {
@@ -193,7 +193,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/avi",
+    type: "avi",
     size: 120353666635346,
   },
   {
@@ -204,7 +204,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/m4v",
+    type: "m4v",
     size: 120353666635346,
   },
   {
@@ -215,7 +215,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/woff",
+    type: "woff",
     size: 120353666635346,
   },
   {
@@ -226,7 +226,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/mkv",
+    type: "mkv",
     size: 120353666635346,
   },
   {
@@ -237,7 +237,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/bat",
+    type: "bat",
     size: 120353666635346,
   },
   {
@@ -248,7 +248,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/srt",
+    type: "srt",
     size: 120353666635346,
   },
   {
@@ -259,7 +259,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/flv",
+    type: "flv",
     size: 120353666635346,
   },
   {
@@ -270,7 +270,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/odt",
+    type: "odt",
     size: 120353666635346,
   },
   {
@@ -281,7 +281,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/wmv",
+    type: "wmv",
     size: 120353666635346,
   },
   {
@@ -292,7 +292,7 @@ const Files: fileType[] = [
     timestamp: new Date(),
     lastModified: new Date(),
     downloadURL: "string",
-    type: "string/yaml",
+    type: "yaml",
     size: 120353666635346,
   },
 ];

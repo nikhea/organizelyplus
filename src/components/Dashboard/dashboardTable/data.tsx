@@ -1,3 +1,5 @@
+import { COLOR_EXTENSION_MAP } from "@/lib/constants/fileType";
+
 export const statuses = [
   {
     value: "backlog",
@@ -25,3 +27,21 @@ export const statuses = [
     //   icon: CrossCircledIcon,
   },
 ];
+
+export const FileTypesValue = Object.keys(COLOR_EXTENSION_MAP).map(
+  (extension) => ({
+    value: extension,
+    label: extension.toUpperCase(),
+  })
+);
+
+// export const FileTypesValue = [
+//   {
+//     value: "pdf",
+//     label: "PDF",
+//   },
+//   {
+//     value: "png",
+//     label: "PNG",
+//   },
+// ];

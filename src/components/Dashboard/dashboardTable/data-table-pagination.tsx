@@ -3,6 +3,7 @@ import {
   ChevronRightIcon,
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
+  ChevronUpDownIcon,
 } from "@heroicons/react/24/solid";
 import { Table } from "@tanstack/react-table";
 
@@ -42,6 +43,7 @@ export function DataTablePagination<TData>({
                 className="cursor-pointer border-0 outline-none border-none focus:ring-0 active:focus:ring-0 hover:focus:ring-0"
                 placeholder={table.getState().pagination.pageSize}
               />
+              {/* <ChevronUpDownIcon className="ml-2 h-4 w-4" /> */}
             </SelectTrigger>
             <SelectContent
               className="border-0 outline-none border-none focus:ring-0 active:focus:ring-0 hover:focus:ring-0"

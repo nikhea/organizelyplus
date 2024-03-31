@@ -9,6 +9,7 @@ import { format } from "date-fns";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DataTableColumnHeader } from "./columnHeader";
+import { DataTableRowActions } from "./data-table-row-actions";
 
 export type fileType = {
   id: string;
@@ -129,5 +130,9 @@ export const columns: ColumnDef<fileType>[] = [
         Download
       </Link>
     ),
+  },
+  {
+    id: "actions",
+    cell: ({ row }) => <DataTableRowActions row={row} />,
   },
 ];

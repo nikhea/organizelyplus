@@ -8,6 +8,7 @@ import { COLOR_EXTENSION_MAP } from "@/lib/constants/fileType";
 import { format } from "date-fns";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { DataTableColumnHeader } from "./columnHeader";
 
 export type fileType = {
   id: string;
@@ -39,29 +40,54 @@ export const columns: ColumnDef<fileType>[] = [
         </div>
       );
     },
-  },
-  {
-    accessorKey: "folderName",
-    // header: "Folder Name",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Folder Name
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id));
     },
   },
   {
+    accessorKey: "folderName",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Folder Name" />
+    ),
+    // header: "Folder Name",
+    // header: ({ column }) => {
+    //   return (
+    //     <Button
+    //       className="group"
+    //       variant="ghost"
+    //       onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+    //     >
+    //       Folder Name
+    //       <ArrowUpDown className="  ml-2 h-4 w-4" />
+    //     </Button>
+    //   );
+    // },
+  },
+  {
     accessorKey: "fileName",
-    header: "File Name",
+    // header: "File Name",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="File Name" />
+    ),
+    // header: ({ column }) => {
+    //   return (
+    //     <Button
+    //       className="group"
+    //       variant="ghost"
+    //       onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+    //     >
+    //       File Name
+    //       <ArrowUpDown className="  ml-2 h-4 w-4" />
+    //     </Button>
+    //   );
+    // },
   },
   {
     accessorKey: "timestamp",
-    header: "Date Added",
+    // header: "Date Added",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Date Added" />
+    ),
     cell: ({ renderValue, ...props }) => {
       const timestamp = renderValue() as Date;
       return <span>{format(timestamp, "MMM dd, yyyy HH:mm:ss")}</span>; // Format the timestamp as desired
@@ -69,7 +95,10 @@ export const columns: ColumnDef<fileType>[] = [
   },
   {
     accessorKey: "lastModified",
-    header: "Last Modified",
+    // header: "Last Modified",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Last Modified" />
+    ),
     cell: ({ renderValue, ...props }) => {
       const lastModified = renderValue() as Date;
       return <span>{format(lastModified, "MMM dd, yyyy HH:mm:ss")}</span>; // Format the lastModified date as desired
@@ -77,7 +106,11 @@ export const columns: ColumnDef<fileType>[] = [
   },
   {
     accessorKey: "size",
-    header: "size",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Size" />
+    ),
+    // header: "size",
+
     cell: ({ renderValue, ...props }) => {
       return <span>{prettyBytes(renderValue() as number)}</span>;
     },

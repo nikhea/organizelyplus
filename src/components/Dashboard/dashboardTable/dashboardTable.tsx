@@ -3,10 +3,14 @@ import { Card, CardTitle } from "@/components/ui/card";
 import React, { useEffect, useState } from "react";
 import { DataTable } from "./tableDisplay";
 import { columns, fileType } from "./columns";
+import { useSearchParams } from "next/navigation";
 
 const DashboardTable = () => {
+  let params: any = {};
+
   const [filterValue, setFilterValue] = useState("");
   const [filteredData, setFilteredData] = useState<fileType[]>([]);
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     const filtered = Files.filter(
@@ -15,6 +19,9 @@ const DashboardTable = () => {
         item.folderName.toLowerCase().includes(filterValue.toLowerCase())
     );
     setFilteredData(filtered);
+
+    params["q"] = filterValue;
+    const p = new URLSearchParams(params).toString();
   }, [filterValue]);
 
   return (

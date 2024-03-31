@@ -7,7 +7,7 @@ import React from "react";
 const Header = () => {
   const { user } = useUser();
   return (
-    <div className=" bg-purple-300 dark:bg-purple-900   rounded-br-lg      py-5 px-5 flex items-center justify-between  sticky  top-0 overflow-hidden">
+    <div className=" bg-purple-300 dark:bg-purple-900   rounded-br-lg      py-5 px-5 flex items-center justify-between  sticky z-10  top-0 overflow-hidden">
       <h1 className=" font-bold  md:text-2xl">
         Welcome back{" "}
         <span className=" !capitalize">

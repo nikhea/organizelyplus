@@ -19,13 +19,13 @@ const RecentFolders = () => {
         <FolderIcon
           className={`w-7 h-7 ${
             folder.color === "red"
-              ? "text-red-500 dark:text-red-900"
+              ? "dark:text-red-300 text-red-900"
               : folder.color === "blue"
-              ? "text-blue-500 dark:text-blue-900"
+              ? "dark:text-blue-300 text-blue-900"
               : folder.color === "yellow"
-              ? "text-yellow-500 dark:text-yellow-900"
+              ? "dark:text-yellow-300 text-yellow-900"
               : folder.color === "green"
-              ? "text-green-500 dark:text-green-900"
+              ? "dark:text-green-300 text-green-900"
               : ""
           }`}
         />
@@ -34,13 +34,13 @@ const RecentFolders = () => {
       <h1
         className={`capitalize font-bold text-lg my-2 ${
           folder.color === "red"
-            ? "text-red-500 dark:text-red-900"
+            ? "dark:text-red-300 text-red-900"
             : folder.color === "blue"
-            ? "text-blue-500 dark:text-blue-900"
+            ? "dark:text-blue-300 text-blue-900"
             : folder.color === "yellow"
-            ? "text-yellow-500 dark:text-yellow-900"
+            ? "dark:text-yellow-300 text-yellow-900"
             : folder.color === "green"
-            ? "text-green-500 dark:text-green-900"
+            ? "dark:text-green-300 text-green-900"
             : ""
         }`}
       >
@@ -117,3 +117,21 @@ const folders: IFolder[] = [
   //     color: "yellow",
   //   },
 ];
+
+{
+  /* <h1
+className={`capitalize font-bold text-lg my-2 ${
+  folder.color === "red"
+    ? "dark:text-red-300 text-red-900"
+    : folder.color === "blue"
+    ? "text-blue-300 dark:text-blue-900"
+    : folder.color === "yellow"
+    ? "text-yellow-300 dark:text-yellow-900"
+    : folder.color === "green"
+    ? "text-green-300 dark:text-green-900"
+    : ""
+}`}
+>
+{folder.name}
+</h1> */
+}

@@ -32,7 +32,6 @@ import {
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Input from "@/components/ui/input";
-import { DataTableToolbar } from "./data-table-toolbar";
 import { DataTablePagination } from "./data-table-pagination";
 import { DataTableFacetedFilter } from "./data-table-faceted-filter";
 import { FileTypesValue } from "./data";

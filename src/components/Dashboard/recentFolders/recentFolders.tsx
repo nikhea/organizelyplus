@@ -1,56 +1,11 @@
 import { NewFolder } from "@/components/folder/newFolder";
 import React from "react";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
-import { FolderIcon, EllipsisVerticalIcon } from "@heroicons/react/24/outline";
-
-interface IFolder {
-  _id: string | number;
-  name: string;
-  totalfiles: number;
-  size: number;
-  color: string;
-}
+import FolderCard, { IFolder } from "@/components/folder/FolderCard";
 
 const RecentFolders = () => {
-  const color = "blue";
   const folder = folders.map((folder: IFolder, index: number) => (
-    <Card key={index} className="p-3 ">
-      <div className="flex items-center justify-between">
-        <FolderIcon
-          className={`w-7 h-7 ${
-            folder.color === "red"
-              ? "dark:text-red-300 text-red-900"
-              : folder.color === "blue"
-              ? "dark:text-blue-300 text-blue-900"
-              : folder.color === "yellow"
-              ? "dark:text-yellow-300 text-yellow-900"
-              : folder.color === "green"
-              ? "dark:text-green-300 text-green-900"
-              : ""
-          }`}
-        />
-        <EllipsisVerticalIcon className="w-7 h-7 cursor-pointer" />
-      </div>
-      <h1
-        className={`capitalize font-bold text-lg my-2 ${
-          folder.color === "red"
-            ? "dark:text-red-300 text-red-900"
-            : folder.color === "blue"
-            ? "dark:text-blue-300 text-blue-900"
-            : folder.color === "yellow"
-            ? "dark:text-yellow-300 text-yellow-900"
-            : folder.color === "green"
-            ? "dark:text-green-300 text-green-900"
-            : ""
-        }`}
-      >
-        {folder.name}
-      </h1>
-      <div className="flex items-center justify-between ">
-        <h6 className=" capitalize">{folder.totalfiles} files</h6>
-        <h6 className=" uppercase">{folder.size} mb</h6>
-      </div>
-    </Card>
+    <FolderCard key={index} folder={folder} />
   ));
   return (
     <Card className="p-5 bg-slate-50 dark:bg-slate-900 pb-10">
@@ -63,10 +18,10 @@ const RecentFolders = () => {
         </CardDescription>
       </div>
       <div className="grid  md:grid-cols-3 lg:grid-cols-6 gap-3 mt-4">
-        {folder}
         <div className="lg:flex hidden">
           <NewFolder />
         </div>
+        {folder}
       </div>
     </Card>
   );
@@ -109,29 +64,4 @@ const folders: IFolder[] = [
     size: 109,
     color: "green",
   },
-  //   {
-  //     _id: 3,
-  //     name: "personal details",
-  //     totalfiles: 200,
-  //     size: 109,
-  //     color: "yellow",
-  //   },
 ];
-
-{
-  /* <h1
-className={`capitalize font-bold text-lg my-2 ${
-  folder.color === "red"
-    ? "dark:text-red-300 text-red-900"
-    : folder.color === "blue"
-    ? "text-blue-300 dark:text-blue-900"
-    : folder.color === "yellow"
-    ? "text-yellow-300 dark:text-yellow-900"
-    : folder.color === "green"
-    ? "text-green-300 dark:text-green-900"
-    : ""
-}`}
->
-{folder.name}
-</h1> */
-}

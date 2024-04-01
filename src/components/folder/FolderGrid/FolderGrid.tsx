@@ -1,24 +1,23 @@
-import { Card } from "@/components/ui/card";
-import React from "react";
 import { NewFolder } from "../newFolder";
 import FolderCard, { IFolder } from "../FolderCard";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import Input from "@/components/ui/input";
+import InputForm from "./InputForm";
 
 const FolderGrid = () => {
   const folder = folders.map((folder: IFolder, index: number) => (
     <FolderCard key={index} folder={folder} />
   ));
   return (
-    <>
-      {/* <ScrollArea className="h-[1000px]"> */}
-      <div className="grid   md:grid-cols-3 lg:grid-cols-6 gap-3 mt-4">
+    <div className="my-10 px-5">
+      <InputForm />
+      <div className="grid   md:grid-cols-2 lg:grid-cols-4 gap-3 mt-4">
         <div className="lg:flex hidden">
           <NewFolder />
         </div>
         {folder}
       </div>
-      {/* </ScrollArea> */}
-    </>
+    </div>
   );
 };
 
